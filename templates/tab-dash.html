@@ -1,0 +1,61 @@
+<ion-view view-title="News">
+  <ion-content class="padding">
+      <form ng-submit="search(k)">
+
+    <div class="list list-inset ">
+  <label class="item item-input ">
+    <i class="icon ion-search placeholder-icon assertive"></i>
+    <input type="text" placeholder="Search" ng-model='k' >
+  </label>
+</div>
+
+    </form>
+
+    <div class="list card" ng-repeat="image in images">
+
+  <!-- item-body -->
+<div class="item ">
+    <h3 ng-bind-html="image.titleNoFormatting"></h3>
+    <p><i class="assertive" >{{image.publisher}}</i> | {{image.publishedDate}}</p>
+  </div>
+
+  <div class="item item-image">
+    <img src="{{image.image.url}}">
+   <div class="item tabs tabs-secondary tabs-icon-left">
+      <a class="tab-item" ng-href=" {{image.unescapedUrl}}"  onclick="window.open(this.href, '_self', 'location=yes'); return false;">
+      <i class="icon ion-ios-barcode-outline "></i>
+     Details
+    </a>
+
+
+    <a class="tab-item" href="#" ng-click="save(image)">
+      <i class="icon ion-android-star-outline"></i>
+      Save
+    </a>
+
+  </div>
+
+
+  <div class="item item-text-wrap">
+      <p ng-bind-html="image.content"> </p>
+  </div>
+
+
+
+</div>
+</div>
+       <form>
+
+    <button class="button  button-block  button-assertive" ng-click="nxt()">
+  next <i class="ion-android-arrow-dropright "></i>
+</button>
+    <button ng-show = 'prvs()' class="button  button-block  button-assertive" ng-click="prv()">
+  <i class="ion-android-arrow-dropleft "></i> previous
+</button>
+
+           </form>
+
+
+
+  </ion-content>
+</ion-view>

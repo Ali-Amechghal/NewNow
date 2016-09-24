@@ -1,0 +1,47 @@
+<ion-view view-title="Favorites" ng-init="load()">
+  <ion-content>
+
+    <ion-list show-delete="shouldShowDelete">
+
+    <ion-toggle  class="assertive" ng-model="settings.enableFriends">
+      <span ng-show="!settings.enableFriends" >  Show bookmarks</span>
+      <span ng-show="settings.enableFriends" >  Hide bookmarks</span>
+
+    </ion-toggle>
+
+
+	<div ng-show="settings.enableFriends" >
+    <ion-toggle class="assertive" ng-model="shouldShowDelete">
+      Show Delete?
+    </ion-toggle>
+
+  <div class="list list-inset ">
+<label class="item item-input ">
+  <i class="icon ion-search placeholder-icon assertive"></i>
+  <input type="text" placeholder="Search" ng-model='filter.title' >
+</label>
+</div>
+
+	<ion-item  class="item-thumbnail-left"  ng-repeat="d in datast | filter : filter">
+
+
+    <img src="{{d.tb}}">
+    <h2 ng-bind-html="d.title"></h2>
+    <p>{{d.publis}} | {{d.date}}</p>
+
+    <ion-delete-button class="ion-minus-circled" ng-click="delete(d.id);"></ion-delete-button>
+    <a class="tab-item" ng-href=" {{d.url}}"  onclick="window.open(this.href, '_self', 'location=yes'); return false;">
+    <i class="icon ion-ios-barcode-outline "></i>
+  </a>
+</ion-item>
+</div>
+
+
+
+    </ion-list>
+
+
+
+
+  </ion-content>
+</ion-view>
