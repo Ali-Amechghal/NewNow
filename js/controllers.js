@@ -174,29 +174,4 @@ $ionicScrollDelegate.scrollTop();
     enableFriends: false
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
